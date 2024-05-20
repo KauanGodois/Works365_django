@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Professional, Usuario
+from .models import Professional, Usuario, ServicoUsuario
 
 def home(request):
     return render(request, 'pages/home.html')
@@ -26,10 +26,10 @@ def register_professional(request):
             telefone=telefone,
             email=email,
             areas_atuacao=areas_atuacao,
-            senha=senha  # Lembre-se de usar um hash de senha em um cenário real
+            senha=senha  
         )
         professional.save()
-        return redirect('success_page')  # Certifique-se de definir essa URL no seu urls.py
+        return redirect('success_page')  
     return render(request, 'profissional.html')
 
 def register_usuario(request):
@@ -51,11 +51,30 @@ def register_usuario(request):
             cpf=cpf,
             telefone=telefone,
             email=email,
-            senha=senha  # Lembre-se de usar um hash de senha em um cenário real
+            senha=senha  
         )
         usuario.save()
-        return redirect('success_page')  # Certifique-se de definir essa URL no seu urls.py
-    return render(request, 'usuario.html')
+        return redirect('success_page')  
+    return render(request, 'pages/usuario.html')
+
+def register_servico(request):
+    if request.method == 'POST':
+        servico = request.POST.get('servico')
+        local = request.POST.get('local')
+        categoria = request.POST.get('categoria')
+
+        # Criação do novo serviço
+        servico_usuario = ServicoUsuario(
+            servico=servico,
+            local=local,
+            categoria=categoria
+        )
+        servico_usuario.save()
+        return redirect('success_servico_page')  
+    return render(request, 'pages/servico_usuario.html')
 
 def success_page(request):
     return HttpResponse("Cadastro realizado com sucesso!")
+
+def success_servico_page(request):
+    return HttpResponse("Serviço cadastrado com sucesso!")
