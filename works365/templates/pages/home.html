@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap">
+  <title>365 Works</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <img src="{% static 'img/logo.png'%}" alt="">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <div class="vertical-line"></div>
+        <li><a href="#">Preciso de um Serviço</a></li>
+        <div class="vertical-line"></div>
+        <li><a href="#">Sou Profissional</a></li>
+        <div class="vertical-line"></div> 
+        <li><a href="#">Quem Somos Nós</a></li> 
+      </ul>
+    </div>
+  </nav>
+  <div class="main-container">
+    <div class="img-container">
+        <img src="{% static 'img/home.png' %}" alt="">
+    </div>
+    <div class="text-container">
+        <h1>Tudo que você</h1>
+        <h1>precisa em um só</h1>
+        <h1>lugar</h1>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 365 WORKS</p>
+  </footer>
+</body>
+</html>
