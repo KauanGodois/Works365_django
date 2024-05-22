@@ -30,7 +30,7 @@ def register_professional(request):
         )
         professional.save()
         return redirect('success_page')  
-    return render(request, 'profissional.html')
+    return render(request, 'pages/profissional.html')
 
 def register_usuario(request):
     if request.method == 'POST':

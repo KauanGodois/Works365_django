@@ -16,13 +16,13 @@
     <div class="container">
       <img src="{% static 'img/logo.png'%}" alt="">
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
+        <li><a href="{% url 'home'%}">Home</a></li>
         <div class="vertical-line"></div>
-        <li><a href="#">Preciso de um Serviço</a></li>
+        <li><a href="{% url 'register_usuario'%}">Preciso de um Serviço</a></li>
         <div class="vertical-line"></div>
-        <li><a href="#">Sou Profissional</a></li>
+        <li><a href="{% url 'register_professional'%}">Sou Profissional</a></li>
         <div class="vertical-line"></div> 
-        <li><a href="#">Quem Somos Nós</a></li> 
+        <li><a href="{% url 'home'%}">Quem Somos Nós</a></li> 
       </ul>
     </div>
   </nav>
