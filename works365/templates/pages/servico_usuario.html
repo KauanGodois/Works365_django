@@ -13,24 +13,10 @@
 </head>
 
 <body>
-
-    <nav class="navbar">
-        <div class="container">
-          <img src="{% static 'img/logo.png'%}" alt="">
-          <ul class="nav-links">
-            <li><a href="{% url 'home'%}">Home</a></li>
-            <div class="vertical-line"></div>
-            <li><a href="{% url 'register_usuario'%}">Preciso de um Serviço</a></li>
-            <div class="vertical-line"></div>
-            <li><a href="{% url 'register_professional'%}">Sou Profissional</a></li>
-            <div class="vertical-line"></div> 
-            <li><a href="{% url 'home'%}">Quem Somos Nós</a></li> 
-          </ul>
-        </div>
-      </nav>
+    {% include 'pages/navbar.html' %}
 
     <div class="login-container">
-        <form class="login-form" method="post" action="{% url 'register_servico' %}">
+        <form class="login-form" method="post" action="{% url 'register_usuario' %}" id="signupForm">
             {% csrf_token %}
             <h2>Cadastro de Serviço</h2>
             <div class="input-group">

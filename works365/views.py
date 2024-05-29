@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import Professional, Usuario, ServicoUsuario
 
 def home(request):
@@ -29,7 +29,7 @@ def register_professional(request):
             senha=senha  
         )
         professional.save()
-        return redirect('success_page')  
+        return redirect('home')  
     return render(request, 'pages/profissional.html')
 
 def register_usuario(request):
@@ -43,7 +43,11 @@ def register_usuario(request):
 
         # Validações básicas
         if senha != confirmar_senha:
-            return HttpResponse("Senhas não coincidem!")
+            return JsonResponse({'success': False, 'errors': 'Senhas não coincidem!'})
+
+        # Verificar se o email já está registrado
+        if Usuario.objects.filter(email=email).exists():
+            return JsonResponse({'success': False, 'errors': 'Email já está registrado!'})
 
         # Criação do novo usuário
         usuario = Usuario(
@@ -51,10 +55,11 @@ def register_usuario(request):
             cpf=cpf,
             telefone=telefone,
             email=email,
-            senha=senha  
+            senha=senha  # Certifique-se de criptografar a senha em um caso real
         )
         usuario.save()
-        return redirect('success_page')  
+        return JsonResponse({'success': True})
+        
     return render(request, 'pages/usuario.html')
 
 def register_servico(request):
@@ -73,8 +78,3 @@ def register_servico(request):
         return redirect('success_servico_page')  
     return render(request, 'pages/servico_usuario.html')
 
-def success_page(request):
-    return HttpResponse("Cadastro realizado com sucesso!")
-
-def success_servico_page(request):
-    return HttpResponse("Serviço cadastrado com sucesso!")

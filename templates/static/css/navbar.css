@@ -1,0 +1,103 @@
+/* navbar.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 2%;
+    transition: top 0.3s;
+    animation: slideInDown 0.5s ease-in-out;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    gap: 25px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff7113;
+    transition: .5s;   
+}
+
+
+.nav-links a.active {
+    color: #ff7113;
+}
+
+.nav-links li {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideInUp 0.5s ease-in-out forwards;
+    
+}
+
+.vertical-line {
+    border: 1px solid #fff;
+    height: 2vh; /* Altura da linha */
+    align-items: center;
+    margin: 0 10px;
+}
+
+/* Transição de entrada da navbar */
+@keyframes slideInDown {
+    from {
+        top: -100px;
+    }
+    to {
+        top: 0;
+    }
+}
+
+/* Animação de fade-in para a lista */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 2;
+    }
+}
+
+/* Animação de slide-in para os itens da lista */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

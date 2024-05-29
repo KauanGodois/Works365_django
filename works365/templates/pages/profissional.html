@@ -1,72 +1,74 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/profissional.css' %}" />
     <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap">
     <title>365 Works</title>
+    <style>
+        body {
+            background-image: url("{% static 'img/background.png' %}");
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="container">
-          <img src="{% static 'img/logo.png'%}" alt="">
-          <ul class="nav-links">
-            <li><a href="{% url 'home'%}">Home</a></li>
-            <div class="vertical-line"></div>
-            <li><a href="{% url 'register_usuario'%}">Preciso de um Serviço</a></li>
-            <div class="vertical-line"></div>
-            <li><a href="{% url 'register_professional'%}">Sou Profissional</a></li>
-            <div class="vertical-line"></div> 
-            <li><a href="{% url 'home'%}">Quem Somos Nós</a></li> 
-          </ul>
-        </div>
-      </nav>
+    {% include 'pages/navbar.html' %}
 
-    <h2>Cadastro do Profissional</h2>
-    <div class="login-container">
-        <form class="login-form" method="post" action="{% url 'register_professional' %}">
-            {% csrf_token %}
-            <div class="input-group">
-                <label for="username">Nome Completo:</label>
-                <input type="text" id="username" name="username" required>
+    <div class="wrapper">
+        <form action="{% url 'register_usuario' %}" method="post"> {% csrf_token %}
+            <h1>Cadastro</h1>
+
+            <div class="input-box">
+                <label for="">Nome Completo</label>
+                <input type="text" name="username" required>
+                <i class='bx bxs-user'></i>
             </div>
 
-            <div class="input-group">
-                <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" oninput="formatarCPF(this)" required>
+            <div class="input-box">
+                <label for="">CPF</label>
+                <input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                <i class='bx bxs-id-card'></i>
             </div>
 
-            <div class="input-group">
-                <label for="telefone">Telefone:</label>
-                <input type="text" id="telefone" name="telefone" pattern="\d{10,11}" placeholder="(00) 00000-0000" required>
-            </div>
-            
-            <div class="input-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Insira um endereço de email válido" required>
+            <div class="input-box">
+                <label for="">Telefone</label>
+                <input type="text" name="telefone" pattern="\d{8,9}" required>
+                <i class='bx bxs-phone'></i>
             </div>
 
-            <div class="input-group">
-                <label for="categorias">Áreas de Atuação:</label>
+            <div class="input-box">
+                <label for="">Email</label>
+                <input type="email" name="email" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
+
+            <div class="input-box">
+                <label for="">Áreas de Atuação:</label>
                 <input type="text" id="categorias" name="categorias" required>
                 <small>Separar por vírgulas (ex: Limpeza, Encanamento, Jardinagem)</small>
             </div>
 
-            <div class="input-group">
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            <div class="input-box">
+                <label for="">Senha</label>
+                <input type="password" name="senha" pattern="\d{8,9}" required>
+                <i class='bx bxs-lock-alt'></i>
             </div>
 
-            <div class="input-group">
-                <label for="confirmar_senha">Confirme a senha:</label>
-                <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirme a senha" required>
+            <div class="input-box">
+                <label for="">Confirme a Senha</label>
+                <input type="password" name="confirmar_senha" pattern="\d{8,9}" required>
             </div>
-            
-            <button type="submit">Cadastrar</button>
+
+            <button type="submit" class="btn">Cadastrar</button>
+
         </form>
     </div>
 
@@ -82,4 +84,5 @@
         <p>&copy; 365 WORKS</p>
     </footer>
 </body>
+
 </html>

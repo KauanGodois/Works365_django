@@ -12,20 +12,8 @@
   <title>365 Works</title>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <img src="{% static 'img/logo.png'%}" alt="">
-      <ul class="nav-links">
-        <li><a href="{% url 'home'%}">Home</a></li>
-        <div class="vertical-line"></div>
-        <li><a href="{% url 'register_usuario'%}">Preciso de um Serviço</a></li>
-        <div class="vertical-line"></div>
-        <li><a href="{% url 'register_professional'%}">Sou Profissional</a></li>
-        <div class="vertical-line"></div> 
-        <li><a href="{% url 'home'%}">Quem Somos Nós</a></li> 
-      </ul>
-    </div>
-  </nav>
+  {% include 'pages/navbar.html' %}
+
   <div class="main-container">
     <div class="img-container">
         <img src="{% static 'img/home.png' %}" alt="">
