@@ -3,115 +3,150 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-    font-family: 'Nunito';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
 }
 
 body {
-    font-family: Arial, sans-serif; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: left;
 }
 
-.navbar {
-    background-color: #333;
+.wrapper {
+    backdrop-filter: blur(20px);
+    margin-top: 4%;
+    background-color: rgba(0, 0, 0, .2);
+    padding: 40px 60px;
+    border-radius: 25px;
+    border: 1px solid #fff;
+    width: 25%;
+    text-align: center;
+}
+
+.wrapper h1 {
+    font-size: 2em;
+    font-weight: 900;
     color: #fff;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
 }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    margin: 0;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid #fff;
+    font-size: 16px;
+    padding: 20px 45px 20px 5px;
+    color: #fff;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.categoria {
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    transition: .5s;
+}
+
+select{
+    border: none;
+    width: 150px;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.input-box input:focus~label, 
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #fff;
+}
+
+.wrapper .remember-forgot {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+    color: #fff;
 }
 
-.nav-links {
-    list-style-type: none;
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
 }
 
-.nav-links li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-.nav-links li a {
+.remember-forgot a {
     color: #fff;
     text-decoration: none;
 }
 
-.login-container {
-    margin: 80px 35%;
-    padding: 15px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.remember-forgot a:hover{
+    text-decoration: underline;
 }
 
-.login-container h2 {
-    margin-bottom: 20px;
-}
-
-.login-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.input-group {
-    margin-bottom: 20px;
-    display: flex;
-}
-
-#input-group {
-    display: flex;
-    text-align: center;
-    margin: 15px auto;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#input-group input {
-    height: 15vh;
-    align-items: center;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    vertical-align: top;
-}
-
-.input-group label {
-    padding-top: 5px;
-    margin-right: 8px;
-    width: 50%;
-}
-
-.input-group input {
-    width: 90%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px; 
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #ff7113;
     border: none;
-    border-radius: 5px;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    color: #fff;
+    transition: background .5s ease-in-out;
 }
 
-button:hover {
-    background-color: #555;
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
 }
 
-#btn-servico {
-    margin: 0 auto;
+.register-link p a {
+    color:#fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn:hover {
+    background: #da6416;
+    box-shadow: 1px 1px 15px 1px #da6416;
+    transform: scale(1.05);
+    transition: .5s;
 }
 
 footer {

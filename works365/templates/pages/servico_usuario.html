@@ -7,39 +7,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/servico_usuario.css' %}" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>365 Works</title>
 </head>
 
 <body>
     {% include 'pages/navbar.html' %}
 
-    <div class="login-container">
-        <form class="login-form" method="post" action="{% url 'register_usuario' %}" id="signupForm">
-            {% csrf_token %}
-            <h2>Cadastro de Serviço</h2>
-            <div class="input-group">
-                <label for="servico">Serviço:</label>
-                <input type="text" id="servico" name="servico" required>
+    <div class="wrapper">
+        <form action="{% url 'register_usuario' %}" method="post"> {% csrf_token %}
+            <h1>Solicitar Serviço</h1>
+
+            <div class="input-box">
+                <label for="">Serviço</label>
+                <input type="text" name="servico" required>
+                <i class='bx bxs-user'></i>
             </div>
-            <div class="input-group">
-                <label for="local">Local:</label>
-                <input type="text" id="local" name="local" required>
+
+            <div class="input-box">
+                <label for="">Local</label>
+                <input type="text" name="local" required>
+                <i class='bx bx-current-location' ></i>
             </div>
-            <div class="input-group">
-                <label for="categoria">Categoria:</label>
-                <select id="categoria" name="categoria">
+
+            <div class="input-box">
+                <label for="">Categorias</label>
+                <select class="categoria" name="categoria">
                     <option value="1">Limpeza</option>
                     <option value="2">Reparos</option>
                     <option value="3">Consultoria</option>
                     <option value="4">Outros</option>
                 </select>
+                <i class='bx bx-align-right' ></i>
             </div>
-            <button type="submit">Cadastrar</button>
-        </form>
-    </div>
 
+            <button type="submit" class="btn">Solicitar</button>
+        </form>
 </body>
 
 </html>

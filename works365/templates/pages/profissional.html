@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/profissional.css' %}" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>365 Works</title>
     <style>
         body {
@@ -24,7 +23,7 @@
 
     <div class="wrapper">
         <form action="{% url 'register_usuario' %}" method="post"> {% csrf_token %}
-            <h1>Cadastro</h1>
+            <h1>Login</h1>
 
             <div class="input-box">
                 <label for="">Nome Completo</label>
@@ -54,6 +53,7 @@
                 <label for="">Áreas de Atuação:</label>
                 <input type="text" id="categorias" name="categorias" required>
                 <small>Separar por vírgulas (ex: Limpeza, Encanamento, Jardinagem)</small>
+                <i class='bx bxs-paint-roll'></i>
             </div>
 
             <div class="input-box">
