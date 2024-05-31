@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/profissional.css' %}" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>365 Works</title>
     <style>
         body {
@@ -72,12 +73,39 @@
         </form>
     </div>
 
+    <button>Aperte</button>
+
+    <div class="alert hide">
+        <i class='bx bxs-error-alt'></i>
+        <span class="msg">Atenção:</span>
+        <div class="close-btn">
+            <i class='bx bx-x'></i>
+        </div>
+        <div class="progress"></div>
+    </div>
+
     <script>
         function formatarCPF(campo) {
             var cpf = campo.value.replace(/\D/g, '');
             cpf = cpf.replace(/(\d{3})(?=\d)/g, '$1.');
             campo.value = cpf;
         }
+
+        $('button').click(function () {
+            $('.alert').removeClass("hide");
+            $('.alert').addClass("show");
+            $('.alert').addClass("showAlert");
+            $('.progress').addClass("active");
+            setTimeout(function () {
+                $('.alert').addClass("hide");
+                $('.alert').removeClass("show");
+            }, 5000);
+        });
+        $('.close-btn').click(function () {
+            $('.alert').addClass("hide");
+            $('.alert').removeClass("show");
+        });
+
     </script>
 
     <footer>
