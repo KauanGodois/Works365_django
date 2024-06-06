@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/profissional.css' %}" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>365 Works</title>
     <style>
         body {
@@ -23,48 +24,48 @@
 
     <div class="wrapper">
         <form action="{% url 'register_usuario' %}" method="post"> {% csrf_token %}
-            <h1>Login</h1>
+            <h1>Cadastro Profissional</h1>
 
             <div class="input-box">
-                <label for="">Nome Completo</label>
                 <input type="text" name="username" required>
+                <label for="">Nome Completo</label>
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="input-box">
-                <label for="">CPF</label>
                 <input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                <label for="">CPF</label>
                 <i class='bx bxs-id-card'></i>
             </div>
 
             <div class="input-box">
-                <label for="">Telefone</label>
                 <input type="text" name="telefone" pattern="\d{8,9}" required>
+                <label for="">Telefone</label>
                 <i class='bx bxs-phone'></i>
             </div>
 
             <div class="input-box">
-                <label for="">Email</label>
                 <input type="email" name="email" required>
+                <label for="">Email</label>
                 <i class='bx bxs-envelope'></i>
             </div>
 
             <div class="input-box">
-                <label for="">Áreas de Atuação:</label>
                 <input type="text" id="categorias" name="categorias" required>
+                <label for="">Áreas de Atuação:</label>
                 <small>Separar por vírgulas (ex: Limpeza, Encanamento, Jardinagem)</small>
                 <i class='bx bxs-paint-roll'></i>
             </div>
 
             <div class="input-box">
-                <label for="">Senha</label>
                 <input type="password" name="senha" pattern="\d{8,9}" required>
+                <label for="">Senha</label>
                 <i class='bx bxs-lock-alt'></i>
             </div>
 
             <div class="input-box">
-                <label for="">Confirme a Senha</label>
                 <input type="password" name="confirmar_senha" pattern="\d{8,9}" required>
+                <label for="">Confirme a Senha</label>
             </div>
 
             <button type="submit" class="btn">Cadastrar</button>
@@ -72,12 +73,52 @@
         </form>
     </div>
 
+    <!-- ALERTS -->
+
+    
+
+    <!-- <div class="alert hide">
+        <i class='bx bx-check'></i>
+        <span class="msg">Cadastro Concluído</span>
+        <div class="close-btn">
+            <i class='bx bx-x'></i>
+        </div>
+        <div class="progress"></div>
+    </div> -->
+
+    <div class="alert hide">
+        <i class='bx bxs-error-alt'></i>
+        <span class="msg">Atenção:</span>
+        <div class="close-btn">
+            <i class='bx bx-x'></i>
+        </div>
+        <div class="progress"></div>
+    </div>
+
+    <button>Aperte</button>
+
     <script>
         function formatarCPF(campo) {
             var cpf = campo.value.replace(/\D/g, '');
             cpf = cpf.replace(/(\d{3})(?=\d)/g, '$1.');
             campo.value = cpf;
         }
+
+        $('button').click(function () {
+            $('.alert').removeClass("hide");
+            $('.alert').addClass("show");
+            $('.alert').addClass("showAlert");
+            $('.progress').addClass("active");
+            setTimeout(function () {
+                $('.alert').addClass("hide");
+                $('.alert').removeClass("show");
+            }, 5000);
+        });
+        $('.close-btn').click(function () {
+            $('.alert').addClass("hide");
+            $('.alert').removeClass("show");
+        });
+
     </script>
 
     <footer>
