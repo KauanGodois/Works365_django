@@ -139,6 +139,7 @@ body {
     color: #fff;
 }
 
+<<<<<<< HEAD
 .btn::before {
     content: '';
     position: absolute;
@@ -162,13 +163,19 @@ small {
     color: #fff;
 }
 
+=======
+>>>>>>> 090bb6a05092ff16a4f2f00c0a948654ed1b512a
 .alert {
     background: #ffdb9b;
     padding: 20px 40px;
     min-width: 420px;
     position: absolute;
     right: 0px;
+<<<<<<< HEAD
     top: 15%;
+=======
+    top: 200px;
+>>>>>>> 090bb6a05092ff16a4f2f00c0a948654ed1b512a
     overflow: hidden;
     border-radius: 4px;
     border-left: 8px solid #ffa502;
@@ -287,6 +294,7 @@ small {
     line-height: 40px;
 }
 
+<<<<<<< HEAD
 .alert .bx-check {
     position: absolute;
     left: 20px;
@@ -296,6 +304,8 @@ small {
     font-size: 30px;
 }
 
+=======
+>>>>>>> 090bb6a05092ff16a4f2f00c0a948654ed1b512a
 footer {
     background: black;
     color: #fff;
