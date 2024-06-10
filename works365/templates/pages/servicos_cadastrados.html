@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profissional.css' %}" />
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap">
+    <title>Serviços Cadastrados</title>
+</head>
+<body>
+    {% include 'pages/navbar.html' %}
+
+    <h2>Serviços Cadastrados</h2>
+    <div class="services-container">
+        {% for service in services %}
+        <div class="service-card">
+            <h3>{{ service.service_name }}</h3>
+            <p><strong>CEP:</strong> {{ service.cep }}</p>
+            <p><strong>Nome do Solicitante:</strong> {{ service.requester_name }}</p>
+            <p><strong>Descrição:</strong> {{ service.description }}</p>
+            <p><strong>Categoria:</strong> {{ service.category }}</p>
+        </div>
+        {% empty %}
+        <p>Nenhum serviço cadastrado.</p>
+        {% endfor %}
+    </div>
+
+    <footer>
+        <p>&copy; 365 WORKS</p>
+    </footer>
+</body>
+</html>

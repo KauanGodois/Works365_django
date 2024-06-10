@@ -78,3 +78,7 @@ def register_servico(request):
         return redirect('success_servico_page')  
     return render(request, 'pages/servico_usuario.html')
 
+
+def visualizar_servico(request):
+    return render(request, 'pages/servicos_cadastrados.html')
+

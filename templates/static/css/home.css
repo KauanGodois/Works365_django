@@ -9,24 +9,6 @@
     font-display: swap;
 }
 
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-footer {
-    background: black;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-}
-
 .main-container {
     display: flex;
     margin-top: 120px;
@@ -41,4 +23,14 @@ footer {
     margin-top: 175px;
     font-size: 54px;
     color: #ff7113;
+}
+
+footer {
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
