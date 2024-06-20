@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/servico_usuario.css' %}" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>365 Works</title>
 </head>
 
@@ -19,15 +19,15 @@
             <h1>Solicitar Serviço</h1>
 
             <div class="input-box">
-                <label for="">Serviço</label>
                 <input type="text" name="servico" required>
-                <i class='bx bxs-user'></i>
+                <label for="">Serviço</label>
+                <i class="fa-solid fa-user"></i>
             </div>
 
             <div class="input-box">
-                <label for="">Local</label>
                 <input type="text" name="local" required>
-                <i class='bx bx-current-location' ></i>
+                <label for="">Local</label>
+                <i class="fa-solid fa-location-dot"></i>
             </div>
 
             <div class="input-box">
@@ -38,11 +38,13 @@
                     <option value="3">Consultoria</option>
                     <option value="4">Outros</option>
                 </select>
-                <i class='bx bx-align-right' ></i>
+                <i class="fa-solid fa-list"></i>
             </div>
 
             <button type="submit" class="btn">Solicitar</button>
         </form>
+
+    {% include 'pages/footer.html' %}
 </body>
 
 </html>

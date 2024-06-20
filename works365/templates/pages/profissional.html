@@ -10,32 +10,19 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>365 Works</title>
-    <style>
-        body {
-            background-image: url("{% static 'img/background.png' %}");
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
 </head>
 
 <body>
     {% include 'pages/navbar.html' %}
 
     <div class="wrapper">
-        <form action="{% url 'register_usuario' %}" method="post"> {% csrf_token %}
+        <form action="{% url 'register_profissional' %}" method="post"> {% csrf_token %}
             <h1>Cadastro Profissional</h1>
 
             <div class="input-box">
                 <input type="text" name="username" required>
                 <label for="">Nome Completo</label>
                 <i class='bx bxs-user'></i>
-            </div>
-
-            <div class="input-box">
-                <input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
-                <label for="">CPF</label>
-                <i class='bx bxs-id-card'></i>
             </div>
 
             <div class="input-box">
@@ -58,13 +45,13 @@
             </div>
 
             <div class="input-box">
-                <input type="password" name="senha" pattern="\d{8,9}" required>
+                <input type="password" name="password" required>
                 <label for="">Senha</label>
                 <i class='bx bxs-lock-alt'></i>
             </div>
 
             <div class="input-box">
-                <input type="password" name="confirmar_senha" pattern="\d{8,9}" required>
+                <input type="password" name="confirmar_senha" required>
                 <label for="">Confirme a Senha</label>
             </div>
 
@@ -72,23 +59,6 @@
 
         </form>
     </div>
-
-<<<<<<< HEAD
-    <!-- ALERTS -->
-
-    
-
-    <!-- <div class="alert hide">
-        <i class='bx bx-check'></i>
-        <span class="msg">Cadastro Concluído</span>
-        <div class="close-btn">
-            <i class='bx bx-x'></i>
-        </div>
-        <div class="progress"></div>
-    </div> -->
-=======
-    <button>Aperte</button>
->>>>>>> 090bb6a05092ff16a4f2f00c0a948654ed1b512a
 
     <div class="alert hide">
         <i class='bx bxs-error-alt'></i>
@@ -99,11 +69,6 @@
         <div class="progress"></div>
     </div>
 
-<<<<<<< HEAD
-    <button>Aperte</button>
-
-=======
->>>>>>> 090bb6a05092ff16a4f2f00c0a948654ed1b512a
     <script>
         function formatarCPF(campo) {
             var cpf = campo.value.replace(/\D/g, '');
@@ -128,9 +93,8 @@
 
     </script>
 
-    <footer>
-        <p>&copy; 365 WORKS</p>
-    </footer>
+    {% include 'pages/footer.html' %}
+    
 </body>
 
 </html>

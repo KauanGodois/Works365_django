@@ -9,7 +9,13 @@
     font-display: swap;
 }
 
+html{
+    font-size: 62.5%;
+}
+
+
 .main-container {
+    position: relative;
     display: flex;
     margin-top: 120px;
     height: 85vh;
@@ -20,17 +26,9 @@
 }
 
 .text-container {
-    margin-top: 175px;
-    font-size: 54px;
-    color: #ff7113;
-}
-
-footer {
-    background: black;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
     position: absolute;
-    width: 100%;
-    bottom: 0;
+    top: 13rem;
+    right: 15rem;
+    font-size: 5.5rem;
+    color: #ff7113;
 }

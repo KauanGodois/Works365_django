@@ -7,16 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="{% static 'css/usuario.css' %}" />
-  <link href="" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>365 Works - Cadastro</title>
-  <style>
-    body {
-      background-image: url("{% static 'img/background-cliente.png' %}");
-      background-size: cover;
-      background-position: center;
-    }
-  </style>
 </head>
 
 <body>
@@ -27,44 +19,73 @@
       <h1>Cadastro</h1>
 
         <div class="input-box">
-          <label for="">Nome Completo</label>
           <input type="text" name="username" required>
+          <label for="">Nome Completo</label>
           <i class='bx bxs-user'></i>
         </div>
 
         <div class="input-box">
-          <label for="">CPF</label>
-          <input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
-          <i class='bx bxs-id-card' ></i>
-        </div>
-
-        <div class="input-box">
+          <input type="text" name="telefone" required>
           <label for="">Telefone</label>
-          <input type="text" name="telefone" pattern="\d{8,9}" required>
           <i class='bx bxs-phone' ></i>
         </div>
 
         <div class="input-box">
-          <label for="">Email</label>
           <input type="email" name="email" required>
+          <label for="">Email</label>
           <i class='bx bxs-envelope'></i>
         </div>
 
         <div class="input-box">
+          <input type="password" name="senha" required>
           <label for="">Senha</label>
-          <input type="password" name="senha" pattern="\d{8,9}" required>
           <i class='bx bxs-lock-alt'></i>
         </div>
 
         <div class="input-box">
+          <input type="password" name="confirmar_senha" required>
           <label for="">Confirme a Senha</label>
-          <input type="password" name="confirmar_senha" pattern="\d{8,9}" required>
         </div>
 
         <button type="submit" class="btn">Cadastrar</button>
 
     </form>
   </div>
+
+  <div class="alert hide">
+    <i class='bx bxs-error-alt'></i>
+    <span class="msg">Atenção:</span>
+    <div class="close-btn">
+        <i class='bx bx-x'></i>
+    </div>
+    <div class="progress"></div>
+</div>
+
+<script>
+    function formatarCPF(campo) {
+        var cpf = campo.value.replace(/\D/g, '');
+        cpf = cpf.replace(/(\d{3})(?=\d)/g, '$1.');
+        campo.value = cpf;
+    }
+
+    $('button').click(function () {
+        $('.alert').removeClass("hide");
+        $('.alert').addClass("show");
+        $('.alert').addClass("showAlert");
+        $('.progress').addClass("active");
+        setTimeout(function () {
+            $('.alert').addClass("hide");
+            $('.alert').removeClass("show");
+        }, 5000);
+    });
+    $('.close-btn').click(function () {
+        $('.alert').addClass("hide");
+        $('.alert').removeClass("show");
+    });
+
+</script>
+
+  {% include 'pages/footer.html' %}
 
 </body>
 

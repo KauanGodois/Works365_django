@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/quem_somos.css' %}" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <title>365 Works</title>
+
+</head>
+
+<body>
+  {% include 'pages/navbar.html' %}
+
+  <div class="main-container">
+    <div class="text">
+      <h3>Somos uma empresa empenhada em aproximar pessoas com necessidades de serviços à profissionais qualificados,
+        estamos a no mercado e com resultados expressivos, nosso objetivo é a sua satisfação!</h3>
+    </div>
+    <div class="card-container">
+      <div class="card" id=" card-1">
+        <i class="fa-solid fa-handshake"></i>
+        <h3>+ de 300 Profissionais cadastrados</h3>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="card" id="card-2">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <h3>Atendimento 5 estrelas</h3>
+      </div>
+      <div class="card" id="card-3">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <h3>Todos os dias pessoas encontrando Profissionais de qualidade</h3>
+      </div>
+    </div>
+  </div>
+  {% include 'pages/footer.html' %}
+</body>
+
+</html>

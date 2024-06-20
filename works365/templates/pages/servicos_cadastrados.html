@@ -5,31 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/profissional.css' %}" />
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/serviços_cadastrados.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Serviços Cadastrados</title>
 </head>
 <body>
     {% include 'pages/navbar.html' %}
 
-    <h2>Serviços Cadastrados</h2>
     <div class="services-container">
-        {% for service in services %}
+
         <div class="service-card">
             <h3>{{ service.service_name }}</h3>
-            <p><strong>CEP:</strong> {{ service.cep }}</p>
-            <p><strong>Nome do Solicitante:</strong> {{ service.requester_name }}</p>
-            <p><strong>Descrição:</strong> {{ service.description }}</p>
-            <p><strong>Categoria:</strong> {{ service.category }}</p>
+            <div><strong>CEP:</strong> {{ service.cep }}</div>
+            <div><strong>Nome do Solicitante:</strong> {{ service.requester_name }}</div>
+            <div><strong>Descrição:</strong> {{ service.description }}</div>
+            <div><strong>Categoria:</strong> {{ service.category }}</div>
+        </div>
+        
+        {% for service in services %}
+        <div class="offer">
+            <div class="details">
+                <i class="fa-solid fa-user"></i>
+                <span>Jorge Almeida | Oferta: $ 300,00</span>
+            </div>
+            <button class="btn-accept">Aceitar Oferta</button>
         </div>
         {% empty %}
-        <p>Nenhum serviço cadastrado.</p>
+        <p>Nenhum serviço cadastrado</p>
         {% endfor %}
     </div>
 
-    <footer>
-        <p>&copy; 365 WORKS</p>
-    </footer>
+    {% include 'pages/footer.html' %}
 </body>
 </html>
+    
+

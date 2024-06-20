@@ -1,14 +1,14 @@
+from pyexpat.errors import messages
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, JsonResponse
-from .models import Professional, Usuario, ServicoUsuario
+from .models import ServicoUsuario, Usuario, Profissional
+from django.contrib import auth
 
 def home(request):
     return render(request, 'pages/home.html')
 
-def register_professional(request):
+def register_profissional(request):
     if request.method == 'POST':
         nome_completo = request.POST.get('username')
-        cpf = request.POST.get('cpf')
         telefone = request.POST.get('telefone')
         email = request.POST.get('email')
         areas_atuacao = request.POST.get('categorias')
@@ -17,48 +17,38 @@ def register_professional(request):
 
         # Validações básicas
         if senha != confirmar_senha:
-            return HttpResponse("Senhas não coincidem!")
+            return messages.success("Senhas não coincidem!")
 
         # Criação do novo profissional
-        professional = Professional(
+        profissional = Profissional(
             nome_completo=nome_completo,
-            cpf=cpf,
             telefone=telefone,
             email=email,
             areas_atuacao=areas_atuacao,
             senha=senha  
         )
-        professional.save()
+        profissional.save()
         return redirect('home')  
+    
     return render(request, 'pages/profissional.html')
 
 def register_usuario(request):
     if request.method == 'POST':
         nome_completo = request.POST.get('username')
-        cpf = request.POST.get('cpf')
         telefone = request.POST.get('telefone')
         email = request.POST.get('email')
         senha = request.POST.get('senha')
         confirmar_senha = request.POST.get('confirmar_senha')
 
-        # Validações básicas
-        if senha != confirmar_senha:
-            return JsonResponse({'success': False, 'errors': 'Senhas não coincidem!'})
-
-        # Verificar se o email já está registrado
-        if Usuario.objects.filter(email=email).exists():
-            return JsonResponse({'success': False, 'errors': 'Email já está registrado!'})
-
         # Criação do novo usuário
         usuario = Usuario(
             nome_completo=nome_completo,
-            cpf=cpf,
             telefone=telefone,
             email=email,
             senha=senha  # Certifique-se de criptografar a senha em um caso real
         )
         usuario.save()
-        return JsonResponse({'success': True})
+        return redirect('login')
         
     return render(request, 'pages/usuario.html')
 
@@ -82,3 +72,30 @@ def register_servico(request):
 def visualizar_servico(request):
     return render(request, 'pages/servicos_cadastrados.html')
 
+
+def login(request):
+    return render(request, 'pages/login.html')
+
+def quem_somos(request):
+    return render(request, 'pages/quem_somos.html')
+
+def login(request):
+
+    if request.method == "POST":
+        usuario = request.POST['username']
+        senha = request.POST['senha']
+
+        verificarUsuario = auth.authenticate(request, username=usuario, senha=senha)
+
+        if verificarUsuario != None:
+            auth.login(request, verificarUsuario)
+            return redirect('servico_cadastrado')
+        else:
+            return redirect('login')
+        
+    else:
+        return render(request, 'pages/login.html')
+    
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
